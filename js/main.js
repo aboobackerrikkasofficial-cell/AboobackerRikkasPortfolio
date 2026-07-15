@@ -252,22 +252,34 @@ document.addEventListener('DOMContentLoaded', () => {
       if (statusEl) { statusEl.textContent = ''; statusEl.className = 'form-status'; }
 
       try {
-        const res = await fetch(form.action, { method: 'POST', body: data });
-        if (res.ok) {
-          if (statusEl) {
-            statusEl.textContent = '✓ Message sent — thanks! I\'ll reply within a day.';
-            statusEl.className = 'form-status ok';
-          }
-          form.reset();
-        } else {
-          throw new Error('Non-200 response');
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          mode: 'cors'
+        });
+
+        if (!res.ok) {
+          const errorText = await res.text();
+          console.error('Backend error:', res.status, errorText);
+          throw new Error(`HTTP ${res.status}`);
         }
-      } catch (err) {
+
         if (statusEl) {
-          statusEl.textContent = '✕ Something went wrong. Please email me directly at aboobackerrikkasofficial@gmail.com';
+          statusEl.textContent = '✓ Message sent — thanks! I\'ll reply within a day.';
+          statusEl.className = 'form-status ok';
+        }
+
+        form.reset();
+
+      } catch (err) {
+        console.error('Contact form error:', err);
+
+        if (statusEl) {
+          statusEl.textContent =
+            '✕ Something went wrong. Please email me directly at aboobackerrikkasofficial@gmail.com';
           statusEl.className = 'form-status err';
         }
-      } finally {
+      }finally {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Submit';
       }

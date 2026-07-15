@@ -23,11 +23,18 @@ app = Flask(__name__)
 # here (both portfolios, and your custom domain once it's live).
 # =========================================================
 ALLOWED_ORIGINS = [
-    "https://aboobacker-rikkas-portfolio.vercel.app/",
+    "https://aboobacker-rikkas-portfolio.vercel.app",
     # "https://your-portfolio2-domain.vercel.app",  # add once portfolio2 is live
     # "https://yourcustomdomain.com",                # add your custom domain once set up
 ]
-CORS(app, origins=ALLOWED_ORIGINS)
+CORS(
+    app,
+    resources={
+        r"/submit": {"origins": ALLOWED_ORIGINS},
+        r"/health": {"origins": ALLOWED_ORIGINS},
+    },
+    methods=["GET", "POST", "OPTIONS"],
+)
 
 # =========================================================
 # Simple in-memory rate limiter — no extra dependency needed.
