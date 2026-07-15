@@ -281,6 +281,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* Wake the backend (Render free-tier cold start) */
-fetch("https://portfolio-backend-e3qc.onrender.com/health")
+fetch("https://portfolio-backend-c631.onrender.com/health")
   .then(() => console.log("Backend awake"))
   .catch(() => console.log("Waking backend..."));
