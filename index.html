@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============ PRIMARY SEO ============ -->
+<title>Aboobacker Rikkas | Python Full-Stack Developer — Interactive Portfolio</title>
+<meta name="description" content="Aboobacker Rikkas is a Python Full-Stack Developer from Kasaragod, Kerala, building web applications with Flask, Django, Vue.js, REST APIs and MySQL. Explore projects, experience, and an interactive 3D showcase.">
+<meta name="keywords" content="Aboobacker Rikkas, Python Full Stack Developer, Flask Developer, Django Developer, Vue.js Developer, Web Developer Kerala, Web Developer Kasaragod, REST API Developer, MySQL Developer, Fresher Full Stack Developer India, Freelance Web Developer Kasaragod, 3D portfolio developer">
+<meta name="author" content="Aboobacker Rikkas">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://portfolio-ivory-kappa-61.vercel.app/portfolio2/">
+
+<!-- ============ OPEN GRAPH ============ -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Aboobacker Rikkas | Python Full-Stack Developer">
+<meta property="og:description" content="Python Full-Stack Developer from Kasaragod, Kerala — an interactive 3D portfolio built with Flask, Django, Vue.js and Three.js.">
+<meta property="og:image" content="https://portfolio-ivory-kappa-61.vercel.app/portfolio2/images/header_image.png">
+<meta property="og:site_name" content="Aboobacker Rikkas — Portfolio">
+
+<!-- ============ TWITTER CARD ============ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aboobacker Rikkas | Python Full-Stack Developer">
+<meta name="twitter:description" content="An interactive 3D portfolio — Flask, Django, Vue.js, REST APIs, MySQL.">
+<meta name="twitter:image" content="https://portfolio-ivory-kappa-61.vercel.app/portfolio2/images/header_image.png">
+
+<!-- ============ ICONS / FONTS ============ -->
+<link rel="icon" href="./images/profile_image.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="./css/style.css">
+
+<!-- ============ STRUCTURED DATA (SEO) ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aboobacker Rikkas",
+  "url": "https://portfolio-ivory-kappa-61.vercel.app/",
+  "image": "https://portfolio-ivory-kappa-61.vercel.app/portfolio2/images/profile_image.png",
+  "jobTitle": "Python Full-Stack Developer",
+  "email": "mailto:aboobackerrikkasofficial@gmail.com",
+  "telephone": "+91-9188072646",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kasaragod",
+    "addressRegion": "Kerala",
+    "addressCountry": "IN"
+  },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Yenepoya University" },
+    { "@type": "EducationalOrganization", "name": "Kuniya Group of Institutions" }
+  ],
+  "knowsAbout": ["Python", "Flask", "Django", "Vue.js", "JavaScript", "MySQL", "REST APIs", "HTML5", "CSS3", "Git", "GitHub", "Tailwind CSS", "Next.js", "Supabase", "Three.js"],
+  "sameAs": [
+    "https://linkedin.com/in/aboobacker-rikkas",
+    "https://github.com/aboobackerrikkasofficial-cell",
+    "https://instagram.com/rikkaxx_x",
+    "https://www.facebook.com/aboobacker.rikkas.1",
+    "https://youtube.com/zinorashop"
+  ]
+}
+</script>
+
+<!-- ============ THREE.JS (loaded from CDN, runs in visitor's browser) ============ -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+
+<div class="nebula" aria-hidden="true"></div>
+<div class="spotlight" id="spotlight" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="preloader" id="preloader">
+  <div class="preload-inner">
+    <div class="preload-orbit">
+      <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <circle class="ring-track" cx="80" cy="80" r="70" />
+        <circle class="ring-draw ring-1" cx="80" cy="80" r="70" />
+        <circle class="ring-track" cx="80" cy="80" r="52" />
+        <circle class="ring-draw ring-2" cx="80" cy="80" r="52" />
+        <circle class="preload-core" cx="80" cy="80" r="14" />
+      </svg>
+    </div>
+    <p class="preload-status" id="preload-status">Initializing core<span class="dots">...</span></p>
+    <div class="preload-bar"><div class="preload-bar-fill" id="preload-fill"></div></div>
+    <p class="preload-percent" id="preload-percent">0%</p>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<nav class="navbar" aria-label="Primary navigation">
+  <div class="nav-inner glass">
+    <span class="logo"><span class="dot"></span>Rikkas</span>
+    <div class="nav-links" id="nav-links">
+      <span class="nav-pill" id="nav-pill" aria-hidden="true"></span>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+    </div>
+    <a class="nav-cta" href="#contact">Contact</a>
+    <span class="nav-burger" id="nav-burger" role="button" aria-label="Open menu" tabindex="0">&#9776;</span>
+  </div>
+  <div class="mobile-panel glass" id="mobile-panel">
+    <a class="active" href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ============ HERO — 3D orbit scene ============ -->
+<section class="hero" id="home" aria-label="Introduction">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+  <!-- fallback for browsers/devices without WebGL -->
+  <div class="hero-fallback" aria-hidden="true">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="g1" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#5EEAD4" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#5EEAD4" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle cx="200" cy="200" r="160" fill="url(#g1)"/>
+      <circle cx="200" cy="200" r="90" fill="none" stroke="#5EEAD4" stroke-width="1.5" opacity="0.5"/>
+      <ellipse cx="200" cy="200" rx="150" ry="60" fill="none" stroke="#A78BFA" stroke-width="1.2" opacity="0.5" transform="rotate(20 200 200)"/>
+      <ellipse cx="200" cy="200" rx="170" ry="70" fill="none" stroke="#5EEAD4" stroke-width="1" opacity="0.4" transform="rotate(-25 200 200)"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="wrap hero-layout">
+      <div class="hero-panel glass reveal">
+        <span class="status-pill"><span class="blip"></span>Open to work — internships &amp; entry-level roles</span>
+        <h1 class="hero-name">Hi, I'm <span class="grad">Aboobacker Rikkas</span></h1>
+        <div class="hero-role">
+          <span class="role-item show">Python Full-Stack Developer</span>
+          <span class="role-item">Flask &amp; Django Backend Developer</span>
+          <span class="role-item">Vue.js Frontend Developer</span>
+          <span class="role-item">REST API Developer</span>
+          <span class="role-item">Freelance Web Developer</span><span class="role-caret"></span>
+        </div>
+        <p class="hero-summary">
+          A growth-driven Full-Stack Developer (Fresher) from Kasaragod, Kerala, building fast,
+          functional, user-focused web applications with Python, Flask, Django, Vue.js and MySQL —
+          currently pursuing a BCA in Computer Science at Yenepoya University alongside freelance
+          client work.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-glow magnetic" onclick="window.location.href='mailto:aboobackerrikkasofficial@gmail.com'">Hire Me</button>
+          <button class="btn-ghost magnetic" onclick="location.href='https://wa.me/919188072646'">WhatsApp Me</button>
+        </div>
+        <div class="hero-social">
+          <a href="https://instagram.com/rikkaxx_x" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/aboobacker.rikkas.1" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://youtube.com/zinorashop" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+          <a href="https://linkedin.com/in/aboobacker-rikkas" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/aboobackerrikkasofficial-cell" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="hero-clock">
+          <span class="clock-dot"></span>
+          <span id="ist-clock">--:--</span> IST · Kasaragod, IN
+        </div>
+      </div>
+
+      <div class="hero-orb reveal" aria-hidden="false">
+        <div class="orb-ring"></div>
+        <div class="orb-frame">
+          <img src="./images/header_image.png" alt="Aboobacker Rikkas, Python Full-Stack Developer" width="900" height="900" fetchpriority="high">
+        </div>
+        <span class="orb-badge glass"><i class="fa-solid fa-code"></i> Full-Stack Dev</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>SCROLL</span><span class="line"></span></div>
+</section>
+
+<!-- ============ STATS — real numbers from the work ============ -->
+<section class="stats" aria-label="Highlights">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-card glass reveal">
+        <div class="stat-num" data-count="100" data-suffix="+">0</div>
+        <div class="stat-label">Employee records handled in HR system</div>
+      </div>
+      <div class="stat-card glass reveal">
+        <div class="stat-num" data-count="120" data-suffix="+">0</div>
+        <div class="stat-label">API requests per session, REST architecture</div>
+      </div>
+      <div class="stat-card glass reveal">
+        <div class="stat-num" data-count="98" data-suffix="%">0</div>
+        <div class="stat-label">Payroll accuracy in internal evaluation</div>
+      </div>
+      <div class="stat-card glass reveal">
+        <div class="stat-num" data-count="50" data-suffix="+">0</div>
+        <div class="stat-label">Git commits across structured releases</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about" aria-labelledby="about-heading">
+  <div class="wrap">
+    <span class="eyebrow">who I am</span>
+    <h2 class="section-title reveal" id="about-heading">About <em>Me</em></h2>
+    <div class="about-grid">
+      <div class="about-photo-frame glass reveal">
+        <img src="./images/profile_image.png" alt="Portrait of Aboobacker Rikkas" width="800" height="800" loading="lazy">
+      </div>
+      <div class="about-body reveal">
+        <p>
+          I'm a passionate Python Full-Stack Developer with a strong interest in web development,
+          backend architecture, and clean design. My journey began with mastering HTML, CSS,
+          JavaScript and Python, alongside frameworks like <strong>Vue.js</strong>, <strong>Flask</strong>
+          and <strong>Django</strong>, and database systems like <strong>MySQL</strong>. I build
+          responsive, functional web applications that deliver real-world value.
+        </p>
+        <p>
+          During my Python Full-Stack course, I built an <strong>HR Management Web Application</strong>
+          using Flask and Vue.js — developing responsive interfaces and RESTful APIs for CRUD
+          modules and MySQL database management. I've also deployed Django applications end to end,
+          managing production configs, static files and WSGI setup, with live projects on
+          PythonAnywhere, Vercel and Render.
+        </p>
+        <p>
+          I'm based in <a href="https://www.google.com/maps/place/Kasaragod" target="_blank" rel="noopener noreferrer">Kuniya, Kasaragod, Kerala</a>,
+          where I continue building projects, taking freelance web development work, and growing my
+          full-stack skills.
+        </p>
+        <div class="fact-strip">
+          <div class="fact-chip glass"><div class="k">Location</div><div class="v">Kasaragod, Kerala</div></div>
+          <div class="fact-chip glass"><div class="k">Focus</div><div class="v">Flask · Django · Vue.js</div></div>
+          <div class="fact-chip glass"><div class="k">Education</div><div class="v">BCA @ Yenepoya</div></div>
+          <div class="fact-chip glass"><div class="k">Status</div><div class="v">Open to work</div></div>
+        </div>
+        <div class="lang-row">
+          <h4>Languages</h4>
+          <ul class="lang-list">
+            <li class="glass"><b>Malayalam</b> — native</li>
+            <li class="glass"><b>English</b> — working proficiency</li>
+            <li class="glass"><b>Hindi</b> — beginner</li>
+            <li class="glass"><b>Tamil</b> — spoken only</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="experience" id="experience" aria-labelledby="experience-heading">
+  <div class="wrap">
+    <span class="eyebrow">work history</span>
+    <h2 class="section-title reveal" id="experience-heading">Experience <em>Orbit</em></h2>
+    <p class="section-sub reveal">The roles and freelance work that have shaped how I build.</p>
+
+    <div class="orbit-path">
+      <article class="orbit-node current glass reveal">
+        <div class="orbit-meta">
+          <span>Jan 2026 → Present</span>
+          <span class="tag">Current</span>
+        </div>
+        <h3>Web Application Developer</h3>
+        <span class="org">Self Employed · Kasaragod, Kerala</span>
+        <p>Developing a full-stack <strong>Public Opinion Web Application</strong> where users share,
+          explore, and interact with opinions across multiple categories — built with Django, focused
+          on secure authentication and scalable backend design.</p>
+        <ul>
+          <li>Built registration, login and posting flows across categories like sports, news and entertainment</li>
+          <li>Implemented secure authentication, profile image updates, bio editing and location management</li>
+          <li>Added like and report functionality to improve engagement and content moderation</li>
+          <li>Designed backend with Django ORM and SQLite3 for efficient data handling</li>
+          <li>Kept the codebase stable with validation, error handling and consistent Git version control</li>
+        </ul>
+      </article>
+
+      <article class="orbit-node glass reveal">
+        <div class="orbit-meta"><span>Aug 2025 → Dec 2025</span></div>
+        <h3>Web Developer</h3>
+        <span class="org">Kuniya Group of Institutions · Kasaragod, Kerala</span>
+        <p>Built a full-stack <strong>HR Management System</strong> using Flask and Vue.js, supporting
+          100+ employee records with smooth CRUD operations.</p>
+        <ul>
+          <li>Handled 120+ API requests per session with a RESTful architecture powered by Axios</li>
+          <li>Shipped separate Admin and Employee dashboards, tested by 15+ internal users</li>
+          <li>Automated Add, Update, Delete and Leave Management modules, cutting manual entry by 30%</li>
+          <li>Designed 5+ core HR modules: Payroll, Events, Meetings, Leave Management and Analytics</li>
+          <li>Reached 98% payroll accuracy in internal evaluation with automated salary computation</li>
+          <li>Maintained 50+ commits across 10+ version updates on GitHub with deployment-ready code</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="projects" id="projects" aria-labelledby="projects-heading">
+  <div class="wrap">
+    <span class="eyebrow">selected work</span>
+    <h2 class="section-title reveal" id="projects-heading">Featured <em>Projects</em></h2>
+    <p class="section-sub reveal">A few things I've designed, built and shipped end to end. Hover a card to tilt it.</p>
+
+    <div class="project-grid">
+      <div class="tilt-card glass reveal">
+        <span class="tag-mini">public-opinion-app</span>
+        <h3>Public Opinion Web Application</h3>
+        <p>A Django-powered platform where users register, post and discuss opinions across
+          categories like sports, news and entertainment — with secure auth, likes, reporting and
+          content moderation.</p>
+        <div class="chip-row"><span>Django</span><span>Django ORM</span><span>SQLite3</span><span>Auth</span></div>
+      </div>
+
+      <div class="tilt-card glass reveal">
+        <span class="tag-mini">hr-management-system</span>
+        <h3>HR Management System</h3>
+        <p>A scalable HR platform for employee management, payroll and attendance tracking, with
+          role-based Admin and Employee dashboards and RESTful backend communication.</p>
+        <div class="chip-row"><span>Flask</span><span>Vue.js</span><span>MySQL</span><span>REST API</span></div>
+      </div>
+
+      <div class="tilt-card glass reveal">
+        <span class="tag-mini">personal-portfolio</span>
+        <h3>Personal Portfolio (v1)</h3>
+        <p>My first portfolio build — a responsive site with a Vue.js / Flask mindset, deployed on
+          Vercel and Render, with a secure contact form powered by the Resend API.</p>
+        <div class="chip-row"><span>Vue.js</span><span>Flask</span><span>Resend API</span><span>Vercel</span></div>
+        <a class="plink" href="https://portfolio-ivory-kappa-61.vercel.app/" target="_blank" rel="noopener noreferrer">View live <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+
+      <div class="tilt-card glass reveal">
+        <span class="tag-mini">gtg-perfume-ecommerce</span>
+        <h3>GTG Perfume E-Commerce</h3>
+        <p>A responsive e-commerce front-end with user-friendly UI components, built mobile-first
+          for smooth navigation and a clean product-browsing experience.</p>
+        <div class="chip-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive UI</span></div>
+      </div>
+    </div>
+
+    <div class="more-link reveal">
+      <a class="glass" href="https://github.com/aboobackerrikkasofficial-cell" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github"></i> See more on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section class="education" id="education" aria-labelledby="education-heading">
+  <div class="wrap">
+    <span class="eyebrow">academic path</span>
+    <h2 class="section-title reveal" id="education-heading">My <em>Journey</em></h2>
+    <div class="edu-grid">
+      <div class="edu-card glass reveal">
+        <p class="when">Jan 2026 – Jan 2029</p>
+        <h3>BCA, Computer Science and IT</h3>
+        <p>Currently pursuing a Bachelor of Computer Applications at Yenepoya University, Mangalore
+          — deepening my computer science foundations while continuing to ship full-stack projects
+          alongside coursework.</p>
+      </div>
+      <div class="edu-card glass reveal">
+        <p class="when">2024 – 2025</p>
+        <h3>Python Full Stack Development Certification</h3>
+        <p>Completed an intensive Python Full Stack Web Development course at Kuniya Group of
+          Institutions, Kasaragod, mastering modern end-to-end web development.</p>
+        <ul>
+          <li>HTML5 &amp; CSS3 — responsive web design</li>
+          <li>JavaScript &amp; jQuery — interactive UIs and DOM handling</li>
+          <li>Vue.js — scalable single-page applications</li>
+          <li>Python &amp; Flask — server-side logic and lightweight web apps</li>
+          <li>MySQL — relational database management</li>
+        </ul>
+      </div>
+      <div class="edu-card glass reveal">
+        <p class="when">2019 – 2020</p>
+        <h3>Higher Secondary Education (Plus Two)</h3>
+        <p>Completed the Commerce stream at G.H.S.S. Shiriya, Kerala, studying Business Studies,
+          Accountancy, Economics and Political Science — before pivoting into full-stack web
+          development.</p>
+      </div>
+      <div class="edu-card glass reveal">
+        <p class="when">2017 – 2018</p>
+        <h3>Secondary School Leaving Certificate (SSLC)</h3>
+        <p>Completed SSLC under the Government of Kerala from G.H.S.S Kuniya, Kasaragod, with A+
+          grades in Malayalam, Arabic and Information Technology.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="skills" id="skills" aria-labelledby="skills-heading">
+  <div class="wrap">
+    <span class="eyebrow">tech stack</span>
+    <h2 class="section-title reveal" id="skills-heading">My <em>Skills</em></h2>
+    <p class="section-sub reveal">The languages, frameworks and tools I build with day to day.</p>
+    <div class="module-grid">
+      <div class="module glass reveal">
+        <h3>Languages &amp; Database</h3>
+        <div class="module-tags">
+          <span>Python</span><span>JavaScript</span><span>PHP</span><span>MySQL</span><span>HTML5</span><span>CSS3</span>
+        </div>
+      </div>
+      <div class="module glass reveal">
+        <h3>Frameworks</h3>
+        <div class="module-tags">
+          <span>Flask</span><span>Django</span><span>Vue.js</span><span>jQuery</span>
+        </div>
+      </div>
+      <div class="module glass reveal">
+        <h3>Concepts</h3>
+        <div class="module-tags">
+          <span>REST APIs</span><span>CRUD Operations</span><span>RBAC</span><span>API Integration</span><span>Responsive Design</span>
+        </div>
+      </div>
+      <div class="module glass reveal">
+        <h3>Tools &amp; Platforms</h3>
+        <div class="module-tags">
+          <span>Git</span><span>GitHub</span><span>VS Code</span><span>Vercel</span><span>Render</span><span>PythonAnywhere</span>
+        </div>
+      </div>
+      <div class="module glass reveal">
+        <h3>Currently Exploring</h3>
+        <div class="module-tags">
+          <span>Next.js</span><span>Tailwind CSS</span><span>Supabase</span><span>Three.js</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact" aria-labelledby="contact-heading">
+  <div class="wrap">
+    <span class="eyebrow">get in touch</span>
+    <h2 class="section-title reveal" id="contact-heading">Contact <em>Me</em></h2>
+    <p class="section-sub reveal">Have a project in mind, or an opening for a full-stack developer? I'd love to hear from you.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card glass reveal">
+        <div class="contact-line"><span class="k">Email</span><a href="mailto:aboobackerrikkasofficial@gmail.com">aboobackerrikkasofficial@gmail.com</a></div>
+        <div class="contact-line"><span class="k">Phone / WhatsApp</span><a href="https://wa.me/919188072646">+91 91880 72646</a></div>
+        <div class="contact-line"><span class="k">Location</span><span class="v">Kuniya, Kasaragod, Kerala, India</span></div>
+        <div class="contact-line"><span class="k">LinkedIn</span><a href="https://linkedin.com/in/aboobacker-rikkas" target="_blank" rel="noopener noreferrer">linkedin.com/in/aboobacker-rikkas</a></div>
+        <div class="contact-line"><span class="k">GitHub</span><a href="https://github.com/aboobackerrikkasofficial-cell" target="_blank" rel="noopener noreferrer">github.com/aboobackerrikkasofficial-cell</a></div>
+        <div class="contact-line"><span class="k">Resume</span><a href="./assets/AboobackerRikkasCV.pdf" download="Aboobacker_Rikkas_Resume.pdf" target="_blank" rel="noopener">Download PDF</a></div>
+      </div>
+
+      <form id="contact-form" action="https://portfolio-backend-e3qc.onrender.com/submit" method="POST" class="form-card glass" aria-label="Contact form">
+        <div class="form-row">
+          <div class="field"><input type="text" placeholder="Full Name" name="fullname" required aria-label="Full Name"></div>
+          <div class="field"><input type="email" placeholder="Email Address" name="email" required aria-label="Email Address"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><input type="tel" placeholder="Mobile Number" name="mobile" pattern="[0-9]{10}" required aria-label="Mobile Number"></div>
+          <div class="field"><input type="text" placeholder="Subject" name="emailsubject" required aria-label="Subject"></div>
+        </div>
+        <div class="field" style="margin-bottom:16px;">
+          <textarea placeholder="Your Message" name="message" required aria-label="Message"></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner glass">
+      <p>© <span id="current-year">2026</span> Aboobacker Rikkas — Kasaragod, Kerala.</p>
+      <span class="footer-status"><span class="blip"></span>Open to work</span>
+      <a class="footer-top" href="#home" aria-label="Back to top"><i class="fa-solid fa-angles-up"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  import { initHeroScene } from './js/scene.js';
+  const canvas = document.getElementById('hero-canvas');
+  if (canvas && !document.documentElement.classList.contains('no-webgl')) {
+    try {
+      initHeroScene(canvas);
+    } catch (err) {
+      document.documentElement.classList.add('no-webgl');
+      console.warn('3D scene failed to start, showing fallback.', err);
+    }
+  }
+</script>
+<script src="./js/main.js" defer></script>
+
+</body>
+</html>
