@@ -23,7 +23,7 @@ app = Flask(__name__)
 # here (both portfolios, and your custom domain once it's live).
 # =========================================================
 ALLOWED_ORIGINS = [
-    "https://portfolio-ivory-kappa-61.vercel.app",
+    "https://aboobacker-rikkas-portfolio.vercel.app/",
     # "https://your-portfolio2-domain.vercel.app",  # add once portfolio2 is live
     # "https://yourcustomdomain.com",                # add your custom domain once set up
 ]
